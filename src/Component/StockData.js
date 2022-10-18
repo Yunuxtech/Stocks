@@ -14,23 +14,24 @@ const StockData = ({ stockId }) => {
         // console.log(response)
         if (isMounted) {
           setStockData(response.data);
+          console.log(stockData)
         }
       } catch (error) {}
     };
     fetchData();
     return () => (isMounted = false);
   }, [stockId]);
-  const {
-    name,
-    country,
-    ticker,
-    exchange,
-    finnhubIndustry,
-    ipo,
-    marketCapitalization,
-    shareOutstanding,
-    weburl,
-  } = stockData;
+  // const {
+  //   name,
+  //   country,
+  //   ticker,
+  //   exchange,
+  //   finnhubIndustry,
+  //   ipo,
+  //   marketCapitalization,
+  //   shareOutstanding,
+  //   weburl,
+  // } = stockData;
   return (
     <div>
       {stockData && (
@@ -38,43 +39,43 @@ const StockData = ({ stockId }) => {
           <div className="col">
             <div>
               <span className="fw-bold">Name: </span>
-              {name}
+              {stockData.name}
             </div>
             <div>
               <span className="fw-bold">Country: </span>
-              {country}
+              {stockData.country}
             </div>
             <div>
               <span className="fw-bold">Ticker: </span>
-              {ticker}
+              {stockData.ticker}
             </div>
           </div>
           <div className="col">
             <div>
               <span className="fw-bold">Exchange: </span>
-              {exchange}
+              {stockData.exchange}
             </div>
             <div>
               <span className="fw-bold">finnhub Industry: </span>
-              {finnhubIndustry}
+              {stockData.finnhubIndustry}
             </div>
             <div>
               <span className="fw-bold">IPO: </span>
-              {ipo}
+              {stockData.ipo}
             </div>
           </div>
           <div className="col">
             <div>
               <span className="fw-bold">market Capitalization: </span>
-              {marketCapitalization}
+              {stockData.marketCapitalization}
             </div>
             <div>
               <span className="fw-bold">share Outstanding: </span>
-              {shareOutstanding}
+              {stockData.shareOutstanding}
             </div>
             <div>
               <span className="fw-bold">Url: </span>
-              <a href={weburl}>{weburl}</a>
+              <a href={stockData.weburl}>{stockData.weburl}</a>
               
             </div>
           </div>
